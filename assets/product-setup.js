@@ -46,8 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 44964875731256,
               })
             }).then(response => {
-              window.res = response;
-              console.log(response)
               // handle response
             }).catch(error => {
               // handle error
