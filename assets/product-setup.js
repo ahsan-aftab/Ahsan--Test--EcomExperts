@@ -1,8 +1,8 @@
+// reset to default option
 let url = window.location.href;
 if(url.includes('variant')){
     window.location.href = window.location.origin + window.location.pathname;
 }
-
 document.addEventListener("DOMContentLoaded", function(){
     let sizeDOMElem =document.querySelector('select[name="options[Size]"]');
     if(sizeDOMElem && sizeDOMElem.options.length > 0){
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
     } 
 
 
-
+    // color swatch - on selecting new color update hidden drop down color
     let colorsCheckBox = document.querySelectorAll('input[type=radio][name=Color]');
     if(colorsCheckBox){
         for(let i = 0; i < colorsCheckBox.length; i++){
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 }); // End DOMContentLoaded 
 
+// On add to cart button click check and send ATC request to Shopify  
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('button[name=add]').addEventListener('click', function(event) {
         setTimeout(function(){

@@ -1,5 +1,5 @@
+// on cart remove item click handler check and send remove fancy jacket 
 document.addEventListener('DOMContentLoaded', ()=>{
-
     let removeButtons = document.querySelectorAll('cart-remove-button a');
     for(let i = 0; i < removeButtons.length; i++ ){
         removeButtons[i].addEventListener('click', function(e){
