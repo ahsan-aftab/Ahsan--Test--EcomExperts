@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ updates:{
-                    44964875731256: 0,
-                    44970625073464:0}
+                    44964875731256: 0
+                }
                     })
                 }).then(response => {
                     setTimeout(()=>{
