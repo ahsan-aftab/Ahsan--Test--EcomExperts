@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         removeButtons[i].addEventListener('click', function(e){
             debugger;
             let a = e.currentTarget;
-            if (document.querySelector('[name=id]').value == '44970625073464') {
-            setTimeout(()=>{
+            if (a.href.includes('id=44970625073464')) {
                 fetch('/cart/update.js', {
                     method: 'POST',
                     headers: {
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 }).catch(error => {
                     // handle error
                 });
-            },100);
             } 
         });
     } 
