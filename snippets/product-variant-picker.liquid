@@ -10,6 +10,22 @@
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
+{%- for option in product.options_with_values -%}
+<fieldset class="js product-form__input {% unless forloop.first %}hidden{% endunless %}">
+  <legend class="form__label">{{ option.name }}</legend>
+  {%- for value in option.values -%}
+    <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+          name="{{ option.name }}"
+          value="{{ value | escape }}"
+          form="{{ product_form_id }}"
+          {% if option.selected_value == value %}checked{% endif %}
+    >
+    <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style="background-color:{{value}}" {% if option.name == 'Color' %} class="swatch-label" {% endif %}>
+  {% if option.name != 'Color' %} {{ value }} {% endif %}
+    </label>
+  {%- endfor -%}
+</fieldset>
+{%- endfor -%}
   {%- if block.settings.picker_type == 'button' -%}
     <variant-radios
       id="variant-radios-{{ section.id }}"
@@ -23,7 +39,7 @@
     >
       {%- for option in product.options_with_values -%}
         <fieldset class="js product-form__input">
-          <legend class="form__label">{{ option.name }}</legend>
+        <legend class="form__label">{{ option.name }}</legend>
           {% render 'product-variant-options', product: product, option: option, block: block %}
         </fieldset>
       {%- endfor -%}
@@ -43,7 +59,7 @@
       {{ block.shopify_attributes }}
     >
       {%- for option in product.options_with_values -%}
-        <div class="product-form__input product-form__input--dropdown">
+        <div class="product-form__input product-form__input--dropdown" {% if option.name == 'Color' %} hidden {%endif%}>
           <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
             {{ option.name }}
           </label>
