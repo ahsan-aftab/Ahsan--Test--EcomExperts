@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let removeButtons = document.querySelectorAll('cart-remove-button a');
     for(let i = 0; i < removeButtons.length; i++ ){
         removeButtons[i].addEventListener('click', function(e){
+            if (document.querySelector('[name=id]').value == '44970625073464') {
             let a = e.currentTarget;
             setTimeout(()=>{
                 fetch('/cart/update.js', {
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     // handle error
                 });
             },100);
-                
+            } 
         });
     } 
     
