@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // On add to cart button click check and send ATC request to Shopify  
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('button[name=add]').addEventListener('click', function(event) {
-      debugger;
+    document.querySelector('button[name=add]').addEventListener('mousedown', function(event) {
             if (document.querySelector('[name=id]').value == '44970625073464') {
                 fetch('/cart/add.js', {
                   method: 'POST',
