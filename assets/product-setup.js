@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('button[name=add]').addEventListener('click', function(event) {
-        if (document.querySelector('[name=id]').value == '44970625040696') {
+        if (document.querySelector('[name=id]').value == '44970625073464') {
           fetch('/cart/add', {
             method: 'POST',
             headers: {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify({
               quantity: 1,
-              id: 44970625073464,
+              id: 44964875731256,
             })
           }).then(response => {
             window.res = response;
