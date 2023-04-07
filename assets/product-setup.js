@@ -31,3 +31,27 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
 }); // End DOMContentLoaded 
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('button[name=add]').addEventListener('click', function(event) {
+        debugger;
+      if (document.querySelector('[name=id]').value == '44970625040696') {
+        fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              quantity: 1,
+              id: 8238827569464,
+            })
+          }).then(response => {
+            window.res = response;
+            console.log(response)
+            // handle response
+          }).catch(error => {
+            // handle error
+          });
+      }
+    });
+  });
