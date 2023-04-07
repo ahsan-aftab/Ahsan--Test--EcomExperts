@@ -1,11 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(){
-    let sizeDOMElem =document.querySelector('select[name="options[Size]"]');
-    if(sizeDOMElem && sizeDOMElem.options.length > 0){
-        sizeDOMElem.options[0].selected = true
-        document.querySelectorAll('variant-selects')[0].onVariantChange()
-        sizeDOMElem.options[0].innerHTML = sizeDOMElem.options[0].innerHTML.replace('- Unavailable',"");
-    } 
-
 
     // color swatch - on selecting new color update hidden drop down color
     let colorsCheckBox = document.querySelectorAll('input[type=radio][name=Color]');
