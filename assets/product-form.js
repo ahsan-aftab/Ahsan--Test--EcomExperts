@@ -34,8 +34,22 @@ if (!customElements.get('product-form')) {
         this.cart.setActiveElement(document.activeElement);
       }
       config.body = formData;
+      if(this.form.querySelector('input[name="id"]').value === '44970625073464') {
+        fetch('/cart/add.js', 
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            quantity: 1,
+            id: 44964875731256,
+          })
+        });
+      }
 
-      fetch(`${routes.cart_add_url}`, config)
+        
+        fetch(`${routes.cart_add_url}`, config)
         .then((response) => response.json())
         .then((response) => {
           if (response.status) {
