@@ -20,26 +20,3 @@ document.addEventListener("DOMContentLoaded", function(){
 
 }); // End DOMContentLoaded 
 
-// On add to cart button click check and send ATC request to Shopify  
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('button[name=add]').addEventListener('mousedown', function(event) {
-            if (document.querySelector('[name=id]').value == '44970625073464') {
-                fetch('/cart/add.js', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    quantity: 1,
-                    id: 44964875731256,
-                  })
-                }).then(response => {
-                  console.log('res', response)
-                  debugger;
-                  // handle response
-                }).catch(error => {
-                  // handle error
-                });
-              }
-    });
-  });
