@@ -15,6 +15,11 @@ if (!customElements.get('product-form')) {
 
     onSubmitHandler(evt) {
       evt.preventDefault();
+      let id = this.form.querySelector('input[name="id"]').value; 
+
+      if(id === '44974792212792' || id === '44974792245560' || id === '44974792278328') {
+        return;
+      }
       if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
       this.handleErrorMessage();
