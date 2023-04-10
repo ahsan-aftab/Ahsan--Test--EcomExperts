@@ -4,8 +4,27 @@ class CartRemoveButton extends HTMLElement {
 
     this.addEventListener('click', (event) => {
       event.preventDefault();
-      const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
-      cartItems.updateQuantity(this.dataset.index, 0);
+      debugger;
+      if (event.currentTarget.querySelector('a') && event.currentTarget.querySelector('a').href.includes('id=44970625073464')) {
+        fetch('/cart/update.js', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ updates:{
+            44964875731256: 0
+        }
+            })
+        }).then(response => {
+          const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
+          cartItems.updateQuantity(this.dataset.index, 0);
+        }).catch(error => {
+        });
+      } else{
+        const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
+        cartItems.updateQuantity(this.dataset.index, 0);
+      }
+
     });
   }
 }
